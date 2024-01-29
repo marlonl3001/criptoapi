@@ -1,4 +1,4 @@
-package br.com.mdr.criptoapi.presentation.theme
+package br.com.mdr.criptoapi.ui.presentation.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
