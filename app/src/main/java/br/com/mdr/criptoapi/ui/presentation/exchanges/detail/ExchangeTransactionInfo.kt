@@ -33,7 +33,8 @@ fun ExchangeTransactionInfo(modifier: Modifier, price: String, interval: String)
             )
             Text(
                 text = price,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center
             )
         }
         Column(
@@ -46,7 +47,8 @@ fun ExchangeTransactionInfo(modifier: Modifier, price: String, interval: String)
             )
             Text(
                 text = interval,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.SemiBold,
+                textAlign = TextAlign.Center
             )
         }
     }

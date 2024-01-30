@@ -2,7 +2,8 @@ package br.com.mdr.criptoapi.ui.presentation.exchanges.detail
 
 import androidx.lifecycle.SavedStateHandle
 import br.com.mdr.criptoapi.common.Constants.EXCHANGE_ID_KEY
-import br.com.mdr.criptoapi.domain.model.ExchangeUI
+import br.com.mdr.criptoapi.domain.model.Assets
+import br.com.mdr.criptoapi.domain.model.ExchangeData
 import br.com.mdr.criptoapi.domain.model.OHLCVData
 import br.com.mdr.criptoapi.domain.model.PageState
 import br.com.mdr.criptoapi.domain.usecase.ExchangeDetailUseCase
@@ -18,14 +19,28 @@ class ExchangeDetailViewModel @Inject constructor(
     private val useCase: ExchangeDetailUseCase,
     private val stateHandle: SavedStateHandle
 ): BaseViewModel() {
-    private val _exchange = MutableStateFlow<PageState<ExchangeUI>>(PageState.Loading)
-    val exchange: StateFlow<PageState<ExchangeUI>> = _exchange
+    private val _exchange = MutableStateFlow<PageState<ExchangeData>>(PageState.Loading)
+    val exchange: StateFlow<PageState<ExchangeData>> = _exchange
 
-    private val _ohlcvList = MutableStateFlow<PageState<List<OHLCVData>>>(PageState.Loading)
-    val ohlcvList: StateFlow<PageState<List<OHLCVData>>> = _ohlcvList
+    private val _lineChartData = MutableStateFlow<MutableList<Entry>>(mutableListOf())
+    val lineChartData: StateFlow<MutableList<Entry>> = _lineChartData
 
-    private val _lineChartData = MutableStateFlow<List<Entry>>(listOf())
-    val lineChartData: StateFlow<List<Entry>> = _lineChartData
+    private val baseAssets = listOf(
+        Assets.BTC.assetId,
+        Assets.BTH.assetId,
+        Assets.ETH.assetId,
+        Assets.LTC.assetId,
+        Assets.XRP.assetId
+    )
+
+    private val _currentAsset = MutableStateFlow(baseAssets.first())
+    val currentAsset: StateFlow<String> = _currentAsset
+
+    private val _priceTraded = MutableStateFlow("")
+    val priceTraded = _priceTraded
+
+    private val _priceTradedInterval = MutableStateFlow("")
+    val priceTradedInterval = _priceTradedInterval
 
     override fun refresh() {
         getExchangeDetail()
@@ -42,22 +57,19 @@ class ExchangeDetailViewModel @Inject constructor(
                     _exchange.emit(PageState.Error(it))
                 }
             ) {
-                _exchange.emit(PageState.Success(useCase.getExchangeDetail(it)))
-                val history = useCase.getOHLCVHistory(it)
-                //(_exchange.value as? PageState.Success<ExchangeUI>)?.result?.history = history
-                val oldExc: ExchangeUI? = (_exchange.value as? PageState.Success<ExchangeUI>)?.result
-                oldExc?.history = history
-                oldExc?.let {
+                useCase.getExchangeDetail(it, baseAssets).collect {
                     _exchange.emit(PageState.Success(it))
-                    fetchChartData(it.history)
+                    fetchChartData(it.history[_currentAsset.value])
                 }
-                //_ohlcvList.emit(PageState.Success(useCase.getOHLCVHistory(it)))
             }
         }
     }
 
     private fun fetchChartData(exchangesHistory: List<OHLCVData>?) {
-        val lineChartData = mutableListOf<Entry>()
+        if (_lineChartData.value.isNotEmpty()) {
+            _lineChartData.value.clear()
+        }
+        val lineChartData = _lineChartData.value
         exchangesHistory?.forEachIndexed { index, ohlcvData ->
             lineChartData.add(
                 Entry(
@@ -68,5 +80,22 @@ class ExchangeDetailViewModel @Inject constructor(
             )
         }
         _lineChartData.value = lineChartData
+    }
+
+    fun updateAssetData(assetId: String, index: Int? = null) {
+        (_exchange.value as? PageState.Success<ExchangeData>)?.apply {
+            val ohlcvData = this.result.history[assetId]
+            fetchChartData(ohlcvData)
+            _currentAsset.value = assetId
+
+            index?.let {
+                updatePriceValues(ohlcvData?.get(it))
+            }
+        }
+    }
+
+    fun updatePriceValues(ohlcvData: OHLCVData?) {
+        _priceTraded.value = ohlcvData?.getPriceTraded().toString()
+        _priceTradedInterval.value = ohlcvData?.getIntervalPeriod().toString()
     }
 }

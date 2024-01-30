@@ -1,6 +1,10 @@
 package br.com.mdr.criptoapi.ui.presentation.exchanges.detail
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.viewinterop.AndroidView
@@ -13,14 +17,16 @@ import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 
 @Composable
-fun ExchangeChart(modifier: Modifier, entries: List<Entry>, onEntrySelected: (OHLCVData?) -> Unit) {
+fun ExchangeChart(modifier: Modifier, entries: List<Entry>, onEntrySelected: (OHLCVData?, Int) -> Unit) {
+    var isFirstLaunch by remember { mutableStateOf(true) }
+
     if (entries.isNotEmpty()) {
         AndroidView(
             modifier = modifier,
             factory = { context ->
                 return@AndroidView MpChartLineView(
                     onValueSelected = {
-                        onEntrySelected.invoke(it?.data as? OHLCVData)
+                        onEntrySelected.invoke(it.data as? OHLCVData, entries.indexOf(it))
                     }
                 ).create(context)
             },
@@ -37,6 +43,9 @@ fun ExchangeChart(modifier: Modifier, entries: List<Entry>, onEntrySelected: (OH
                 it.invalidate()
             }
         )
-        onEntrySelected.invoke(entries.firstOrNull()?.data as? OHLCVData)
+        if (isFirstLaunch) {
+            onEntrySelected.invoke(entries.firstOrNull()?.data as? OHLCVData, 0)
+            isFirstLaunch = false
+        }
     }
 }

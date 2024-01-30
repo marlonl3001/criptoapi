@@ -9,13 +9,11 @@ import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.highlight.Highlight
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener
 
-open class MpChartLineView(private val onValueSelected: (Entry?) -> Unit) : IMpChartLineView, OnChartValueSelectedListener {
+open class MpChartLineView(private val onValueSelected: (Entry) -> Unit) : IMpChartLineView, OnChartValueSelectedListener {
     private var mLineChart: LineChart? = null
     override fun create(context: Context, colorSurface: Color, colorOnSurface: Color): LineChart {
         mLineChart = LineChart(context).apply {
 
-            //Set shadow
-            //setLayerType(View.LAYER_TYPE_SOFTWARE, null)
             applyAxis(this)
 
             legend.isEnabled = false
@@ -46,7 +44,7 @@ open class MpChartLineView(private val onValueSelected: (Entry?) -> Unit) : IMpC
         }
     }
 
-    override fun onValueSelected(e: Entry?, h: Highlight?) {
+    override fun onValueSelected(e: Entry, h: Highlight?) {
         onValueSelected.invoke(e)
     }
 

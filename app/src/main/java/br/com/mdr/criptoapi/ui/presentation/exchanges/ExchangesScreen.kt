@@ -1,6 +1,7 @@
 package br.com.mdr.criptoapi.ui.presentation.exchanges
 
 import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -23,6 +24,7 @@ import br.com.mdr.criptoapi.navigation.Screen
 import br.com.mdr.criptoapi.ui.components.HandlePagingItemsResult
 import br.com.mdr.criptoapi.ui.components.SearchTopBar
 import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.MEDIUM_PADDING
+import br.com.mdr.criptoapi.ui.presentation.theme.PrimaryColor
 import br.com.mdr.criptoapi.utils.isScrollingUp
 
 @Composable
@@ -62,6 +64,7 @@ private fun ListContent(exchanges: LazyPagingItems<Exchange>,
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .background(color = PrimaryColor)
     ) {
         AnimatedVisibility(
             modifier = Modifier.fillMaxWidth(),

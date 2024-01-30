@@ -24,7 +24,7 @@ class ExchangeRemoteMediator(
     override suspend fun initialize(): InitializeAction {
         val currentTime = System.currentTimeMillis()
         val lastUpdate = exchangesRemoteKeysDao.getRemoteKeys()?.lastUpdated ?: 0L
-        val cacheTimeOut = 5
+        val cacheTimeOut = 500000
         // Tempo em minutos para verificar quando RemoteMediator
         // precisa requisitar novos dados do servidor
 

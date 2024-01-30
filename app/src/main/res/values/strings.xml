@@ -17,4 +17,5 @@
     <string name="search_here">Busque um ativo</string>
     <string name="close_icon">Ícone fechar</string>
     <string name="search_icon">Ícone pesquisar</string>
+    <string name="back_button">Botão voltar</string>
 </resources>

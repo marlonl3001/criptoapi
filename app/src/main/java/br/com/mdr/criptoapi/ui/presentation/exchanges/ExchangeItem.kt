@@ -45,12 +45,6 @@ fun ExchangeItem(exchange: Exchange, onExchangeClick: (Exchange) -> Unit) {
                         start.linkTo(parent.start)
                         top.linkTo(parent.top)
                     },
-//                model = ImageRequest
-//                    .Builder(LocalContext.current)
-//                    .data(exchange.url)
-//                    .size(Size.ORIGINAL)
-//                    .placeholder(R.drawable.ic_placeholder)
-//                    .build(),
                 model = exchange.url,
                 contentDescription = exchange.name
             )
@@ -110,23 +104,9 @@ fun ExchangeItemPreview() {
         Exchange(
             "ETHERIUM",
             "Etherium",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            0,
-//            0,
-//            0.0,
             3456538.57,
             654665865.0,
             3698218468.75,
-//            0.0,
-//            listOf(),
-//            listOf(),
             null
         )
     ) {}
@@ -139,23 +119,9 @@ fun ExchangeItemDarkPreview() {
         Exchange(
             "ETHERIUM",
             "Etherium",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            "",
-//            0,
-//            0,
-//            0.0,
             3456538.57,
             654665865.0,
             3698218468.75,
-//            0.0,
-//            listOf(),
-//            listOf(),
             null
         )
     ) {}

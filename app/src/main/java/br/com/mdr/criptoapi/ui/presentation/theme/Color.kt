@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 
 val ShimmerLightGray = Color(0xFFF1F1F1)
-val ShimmerMediumGray = Color(0xFFE3E3E3)
+val ShimmerMediumGray = Color(0xFFA0A0A0)
 val ShimmerDarkGray = Color(0xFF1D1D1D)
 
 val PrimaryColor = Color(0xFF18191A)

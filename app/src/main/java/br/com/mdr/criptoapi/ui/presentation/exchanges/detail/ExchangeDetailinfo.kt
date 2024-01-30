@@ -3,6 +3,7 @@ package br.com.mdr.criptoapi.ui.presentation.exchanges.detail
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,12 +13,15 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import br.com.mdr.criptoapi.R
 import br.com.mdr.criptoapi.domain.model.Exchange
+import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.MEDIUM_PADDING
 import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.SMALL_PADDING
 
 @Composable
 fun ExchangeDetailInfo(modifier: Modifier, exchange: Exchange) {
     Column(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(MEDIUM_PADDING),
         verticalArrangement = Arrangement.spacedBy(SMALL_PADDING)
     ) {
         Text(

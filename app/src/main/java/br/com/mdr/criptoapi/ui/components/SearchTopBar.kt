@@ -52,8 +52,7 @@ fun SearchTopBar(
             .semantics {
                 contentDescription = SEARCH_COMPONENT
             },
-        shadowElevation = AppBarDefaults.TopAppBarElevation,
-        color = Color.DarkGray,
+        color = Color.Transparent,
         shape = RoundedCornerShape(MEDIUM_PADDING),
         border = BorderStroke(
             2.dp,

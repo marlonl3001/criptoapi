@@ -4,18 +4,17 @@ import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import br.com.mdr.criptoapi.common.Constants.BINANCE_BITCOIN_SYMBOL
 import br.com.mdr.criptoapi.common.Constants.DEFAULT_PAGE_SIZE
 import br.com.mdr.criptoapi.data.local.CriptoDatabase
 import br.com.mdr.criptoapi.data.pagingsource.ExchangeRemoteMediator
 import br.com.mdr.criptoapi.data.remote.api.CriptoApi
 import br.com.mdr.criptoapi.domain.model.Exchange
 import br.com.mdr.criptoapi.domain.model.OHLCVData
+import br.com.mdr.criptoapi.domain.model.Symbol
 import br.com.mdr.criptoapi.domain.repository.RemoteDataSource
 import br.com.mdr.criptoapi.utils.toIsoFormat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import java.util.Calendar
 import java.util.Date
@@ -42,7 +41,7 @@ class RemoteDataSourceImpl(
         ).flow.flowOn(Dispatchers.IO)
     }
 
-    override suspend fun getOHLCVHistory(exchangeId: String): List<OHLCVData> {
+    override suspend fun getOHLCVHistory(exchangeId: String, symbolId: String): List<OHLCVData> {
         val dateEnd = Date()
         val dateStart = Calendar.getInstance()
         dateStart.time = dateEnd
@@ -52,9 +51,12 @@ class RemoteDataSourceImpl(
         val paramDateEnd = dateEnd.toIsoFormat()
 
         return api.getOHLCVHistory(
-                symbolId = BINANCE_BITCOIN_SYMBOL,
+                symbolId = symbolId,
                 timeStart = paramDateStart,
                 timeEnd = paramDateEnd
             )
     }
+
+    override suspend fun getExchangeSymbols(exchangeId: String): List<Symbol> =
+        api.getExchangeSymbols(exchangeId)
 }

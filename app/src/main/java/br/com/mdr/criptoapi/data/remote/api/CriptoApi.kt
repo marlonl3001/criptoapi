@@ -3,6 +3,8 @@ package br.com.mdr.criptoapi.data.remote.api
 import br.com.mdr.criptoapi.domain.model.Exchange
 import br.com.mdr.criptoapi.domain.model.ExchangeIcon
 import br.com.mdr.criptoapi.domain.model.OHLCVData
+import br.com.mdr.criptoapi.domain.model.Symbol
+import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -22,4 +24,9 @@ interface CriptoApi {
         @Query("time_end", encoded = true) timeEnd: String,
         @Query("period_id") periodId: String = "1HRS"
     ): List<OHLCVData>
+
+    @GET("symbols/{exchangeId}")
+    suspend fun getExchangeSymbols(
+        @Path("exchangeId") exchangeId: String
+    ): List<Symbol>
 }

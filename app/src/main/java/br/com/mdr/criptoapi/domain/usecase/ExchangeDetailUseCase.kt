@@ -1,15 +1,13 @@
 package br.com.mdr.criptoapi.domain.usecase
 
-import br.com.mdr.criptoapi.domain.model.ExchangeUI
-import br.com.mdr.criptoapi.domain.model.toExchangeUI
+import br.com.mdr.criptoapi.domain.model.ExchangeData
 import br.com.mdr.criptoapi.domain.repository.ExchangesRepository
+import kotlinx.coroutines.flow.Flow
 
 class ExchangeDetailUseCase(
     private val repository: ExchangesRepository
 ) {
-    suspend fun getExchangeDetail(exchangeId: String): ExchangeUI =
-        repository.getExchangeDetail(exchangeId).toExchangeUI()
+    fun getExchangeDetail(exchangeId: String, assets: List<String>): Flow<ExchangeData> =
+        repository.getExchangeDetail(exchangeId, assets)
 
-    suspend fun getOHLCVHistory(exchangeId: String) =
-        repository.getOHLCVHistory(exchangeId)
 }
