@@ -62,12 +62,13 @@ fun ExchangeDetailScreen(
             }
         }
     }
-
 }
 
 @Composable
-fun ExchangeDetailItem(modifier: Modifier, exchangeData: ExchangeData,
-                       viewModel: ExchangeDetailViewModel
+fun ExchangeDetailItem(
+    modifier: Modifier,
+    exchangeData: ExchangeData,
+    viewModel: ExchangeDetailViewModel
 ) {
     val lineChartData by viewModel.lineChartData.collectAsState()
     val currentAsset by viewModel.currentAsset.collectAsState()
@@ -85,7 +86,6 @@ fun ExchangeDetailItem(modifier: Modifier, exchangeData: ExchangeData,
             .fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(SMALL_PADDING)
     ) {
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
@@ -136,7 +136,8 @@ fun ExchangeDetailItem(modifier: Modifier, exchangeData: ExchangeData,
 @Preview(showBackground = true)
 @Composable
 fun ExchangeDetailPreview() {
-    val ohlcvData = mutableMapOf("ETH" to
+    val ohlcvData = mutableMapOf(
+        "ETH" to
             listOf(
                 OHLCVData(40092.1, 40095.89, 39939.04, 40012.0, "2024-01-25T10:59:58.7670000Z", "2024-01-25T10:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 39.9786),
                 OHLCVData(41092.1, 41095.89, 39939.04, 40012.0, "2024-01-25T11:59:58.7670000Z", "2024-01-25T11:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 42.9786),
@@ -150,18 +151,21 @@ fun ExchangeDetailPreview() {
                 OHLCVData(49092.1, 49095.89, 39939.04, 40012.0, "2024-01-25T19:59:58.7670000Z", "2024-01-25T19:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 42.9786),
                 OHLCVData(50092.1, 50095.89, 39939.04, 40012.0, "2024-01-25T20:59:58.7670000Z", "2024-01-25T20:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 45.9786),
                 OHLCVData(51092.1, 51095.89, 39939.04, 40012.0, "2024-01-25T21:59:58.7670000Z", "2024-01-25T21:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 37.9786)
-            ))
-    ExchangeDetailItem(modifier = Modifier, exchangeData = ExchangeData(
-        Exchange(
-            "ETHERIUM",
-            "Etherium",
-            3456538.57,
-            654665865.0,
-            3698218468.75,
-            null
+            )
+    )
+    ExchangeDetailItem(
+        modifier = Modifier,
+        exchangeData = ExchangeData(
+            Exchange(
+                "ETHERIUM",
+                "Etherium",
+                3456538.57,
+                654665865.0,
+                3698218468.75,
+                null
+            ),
+            ohlcvData
         ),
-        ohlcvData
-    ),
         hiltViewModel()
     )
 }
@@ -169,7 +173,8 @@ fun ExchangeDetailPreview() {
 @Preview(uiMode = Configuration.UI_MODE_NIGHT_YES, showBackground = true)
 @Composable
 fun ExchangeDetailDarkPreview() {
-    val ohlcvData = mutableMapOf("ETH" to
+    val ohlcvData = mutableMapOf(
+        "ETH" to
             listOf(
                 OHLCVData(40092.1, 40095.89, 39939.04, 40012.0, "2024-01-25T10:59:58.7670000Z", "2024-01-25T10:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 39.9786),
                 OHLCVData(41092.1, 41095.89, 39939.04, 40012.0, "2024-01-25T11:59:58.7670000Z", "2024-01-25T11:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 42.9786),
@@ -183,18 +188,21 @@ fun ExchangeDetailDarkPreview() {
                 OHLCVData(49092.1, 49095.89, 39939.04, 40012.0, "2024-01-25T19:59:58.7670000Z", "2024-01-25T19:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 42.9786),
                 OHLCVData(50092.1, 50095.89, 39939.04, 40012.0, "2024-01-25T20:59:58.7670000Z", "2024-01-25T20:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 45.9786),
                 OHLCVData(51092.1, 51095.89, 39939.04, 40012.0, "2024-01-25T21:59:58.7670000Z", "2024-01-25T21:00:07.3530000Z", "2024-01-25T11:00:00.0000000Z", "2024-01-25T10:00:00.0000000Z", 1158, 37.9786)
-            ))
-    ExchangeDetailItem(modifier = Modifier, exchangeData = ExchangeData(
-        Exchange(
-        "ETHERIUM",
-        "Etherium",
-        3456538.57,
-        654665865.0,
-        3698218468.75,
-        null
-    ),
-        ohlcvData
-    ),
+            )
+    )
+    ExchangeDetailItem(
+        modifier = Modifier,
+        exchangeData = ExchangeData(
+            Exchange(
+                "ETHERIUM",
+                "Etherium",
+                3456538.57,
+                654665865.0,
+                3698218468.75,
+                null
+            ),
+            ohlcvData
+        ),
         hiltViewModel()
     )
 }

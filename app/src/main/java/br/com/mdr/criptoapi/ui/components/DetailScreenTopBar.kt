@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import br.com.mdr.criptoapi.R
-import br.com.mdr.criptoapi.ui.presentation.theme.SecondaryColor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

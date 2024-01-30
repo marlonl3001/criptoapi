@@ -51,10 +51,10 @@ class RemoteDataSourceImpl(
         val paramDateEnd = dateEnd.toIsoFormat()
 
         return api.getOHLCVHistory(
-                symbolId = symbolId,
-                timeStart = paramDateStart,
-                timeEnd = paramDateEnd
-            )
+            symbolId = symbolId,
+            timeStart = paramDateStart,
+            timeEnd = paramDateEnd
+        )
     }
 
     override suspend fun getExchangeSymbols(exchangeId: String): List<Symbol> =

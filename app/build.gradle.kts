@@ -1,4 +1,4 @@
-import com.android.build.api.variant.BuildConfigField
+
 
 plugins {
     alias(libs.plugins.android.application)
@@ -29,7 +29,7 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "API_KEY", "\"9AF63160-32A9-42FB-BA40-8A320E425FB7\"")
-            //3807A772-1841-409F-B8DA-5A2E2110A687
+            // 3807A772-1841-409F-B8DA-5A2E2110A687
         }
         release {
             isMinifyEnabled = false
@@ -94,7 +94,7 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
 
-    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation(libs.mpAndroid.chart)
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

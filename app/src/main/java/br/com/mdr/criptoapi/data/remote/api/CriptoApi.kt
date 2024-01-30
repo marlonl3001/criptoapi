@@ -4,7 +4,6 @@ import br.com.mdr.criptoapi.domain.model.Exchange
 import br.com.mdr.criptoapi.domain.model.ExchangeIcon
 import br.com.mdr.criptoapi.domain.model.OHLCVData
 import br.com.mdr.criptoapi.domain.model.Symbol
-import com.google.gson.annotations.SerializedName
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

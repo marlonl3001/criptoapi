@@ -20,15 +20,15 @@ fun ExchangeTransactionInfo(modifier: Modifier, price: String, interval: String)
     Row(
         modifier = modifier
             .fillMaxWidth()
-            .padding(Dimens.SMALL_PADDING)
-        ,
+            .padding(Dimens.SMALL_PADDING),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
         Column(
             verticalArrangement = Arrangement.SpaceEvenly,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = stringResource(id = R.string.price_traded),
+            Text(
+                text = stringResource(id = R.string.price_traded),
                 textAlign = TextAlign.Center
             )
             Text(

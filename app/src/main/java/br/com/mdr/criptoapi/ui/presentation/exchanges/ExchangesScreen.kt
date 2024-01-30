@@ -53,12 +53,12 @@ fun ExchangesScreen(
 }
 
 @Composable
-private fun ListContent(exchanges: LazyPagingItems<Exchange>,
-                        query: String,
-                        viewModel: ExchangesViewModel,
-                        navController: NavHostController
+private fun ListContent(
+    exchanges: LazyPagingItems<Exchange>,
+    query: String,
+    viewModel: ExchangesViewModel,
+    navController: NavHostController
 ) {
-
     val listState = rememberLazyListState()
 
     Column(

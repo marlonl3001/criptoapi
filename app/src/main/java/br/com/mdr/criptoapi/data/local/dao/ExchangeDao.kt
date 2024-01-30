@@ -6,7 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import br.com.mdr.criptoapi.domain.model.Exchange
-import retrofit2.http.DELETE
 
 @Dao
 interface ExchangeDao {

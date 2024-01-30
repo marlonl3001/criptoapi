@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flowOn
 
 class LocalDataSourceImpl(
     private val database: CriptoDatabase
-): LocalDataSource {
+) : LocalDataSource {
     private val exchangeDao = database.getExchangeDao()
 
     override suspend fun getSelectedExchange(exchangeId: String): Exchange {

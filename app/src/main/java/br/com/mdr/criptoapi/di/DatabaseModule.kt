@@ -13,13 +13,12 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-
 @Module
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
+    // Provides a singleton database instance
     @Provides
     @Singleton
-    //Provides a singleton database instance
     fun provideDatabase(@ApplicationContext context: Context): CriptoDatabase =
         Room.databaseBuilder(
             context = context,

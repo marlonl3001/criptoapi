@@ -28,7 +28,7 @@ fun LazyListState.isScrollingUp(): State<Boolean> {
         }.collect { (currentIndex, currentScroll) ->
             if (currentIndex != lastIndex || currentScroll != lastScroll) {
                 value = currentIndex < lastIndex ||
-                        (currentIndex == lastIndex && currentScroll < lastScroll)
+                    (currentIndex == lastIndex && currentScroll < lastScroll)
                 lastIndex = currentIndex
                 lastScroll = currentScroll
             }

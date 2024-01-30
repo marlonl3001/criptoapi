@@ -13,7 +13,6 @@ open class MpChartLineView(private val onValueSelected: (Entry) -> Unit) : IMpCh
     private var mLineChart: LineChart? = null
     override fun create(context: Context, colorSurface: Color, colorOnSurface: Color): LineChart {
         mLineChart = LineChart(context).apply {
-
             applyAxis(this)
 
             legend.isEnabled = false
@@ -24,14 +23,12 @@ open class MpChartLineView(private val onValueSelected: (Entry) -> Unit) : IMpCh
             setOnChartValueSelectedListener(this@MpChartLineView)
 
             description.isEnabled = false
-
         }
         return mLineChart ?: LineChart(context)
     }
 
     private fun applyAxis(lineChart: LineChart) {
         lineChart.apply {
-
             xAxis.granularity = 1f
             xAxis.setDrawAxisLine(false)
             xAxis.setDrawGridLines(false)

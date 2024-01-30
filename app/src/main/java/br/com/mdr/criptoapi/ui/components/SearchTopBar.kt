@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.AppBarDefaults
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.IconButton
 import androidx.compose.material.TextField
@@ -133,7 +132,6 @@ fun SearchTopBar(
 @Composable
 fun SearchTopBarView() {
     SearchTopBar(text = "", onTextChange = {}, onSearchClicked = {}) {
-
     }
 }
 
@@ -141,6 +139,5 @@ fun SearchTopBarView() {
 @Composable
 fun SearchTopBarDarkView() {
     SearchTopBar(text = "", onTextChange = {}, onSearchClicked = {}) {
-
     }
 }

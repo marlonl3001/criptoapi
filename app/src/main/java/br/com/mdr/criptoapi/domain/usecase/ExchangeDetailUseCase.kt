@@ -9,5 +9,4 @@ class ExchangeDetailUseCase(
 ) {
     fun getExchangeDetail(exchangeId: String, assets: List<String>): Flow<ExchangeData> =
         repository.getExchangeDetail(exchangeId, assets)
-
 }

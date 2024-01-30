@@ -6,7 +6,6 @@ object Constants {
     const val DEFAULT_PAGE_SIZE = 15
     const val EXCHANGE_ID_KEY = "exchangeId"
     const val SPOT_SYMBOL = "_SPOT_"
-    const val USD_SYMBOL = "_USD"
 
     // Semantics content description
     const val SEARCH_COMPONENT = "SearchComponent"

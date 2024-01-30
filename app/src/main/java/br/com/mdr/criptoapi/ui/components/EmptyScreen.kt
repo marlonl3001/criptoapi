@@ -36,7 +36,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.paging.LoadState
 import br.com.mdr.criptoapi.R
-import br.com.mdr.criptoapi.domain.model.PageState
 import br.com.mdr.criptoapi.ui.presentation.base.BaseViewModel
 import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.NETWORK_ERROR_ICON_HEIGHT
 import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.SMALL_PADDING

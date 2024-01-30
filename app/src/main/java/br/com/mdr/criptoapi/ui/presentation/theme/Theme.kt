@@ -36,7 +36,7 @@ fun CriptoAPITheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = Typography,
-        content = { 
+        content = {
             ProvideTextStyle(
                 value = TextStyle(color = Color.White),
                 content = content

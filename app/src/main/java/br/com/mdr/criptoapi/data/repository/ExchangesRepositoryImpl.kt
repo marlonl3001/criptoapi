@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.flow
 class ExchangesRepositoryImpl(
     private val dataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
-): ExchangesRepository {
+) : ExchangesRepository {
 
     override fun getExchanges(): Flow<PagingData<Exchange>> =
         dataSource.getAllExchanges()

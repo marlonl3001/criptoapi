@@ -62,28 +62,28 @@ fun AssetsListPreview() {
 }
 
 private fun getSymbols() = listOf(
-        Symbol(
-            "BTC",
-            "USD",
-            "BINANCE",
-            "BINANCE_SPOT_BTC_USD"
-        ),
-        Symbol(
-            "ETH",
-            "USD",
-            "BINANCE",
-            "BINANCE_SPOT_ETH_USD"
-        ),
-        Symbol(
-            "XRP",
-            "USD",
-            "BINANCE",
-            "BINANCE_SPOT_XRP_USD"
-        ),
-        Symbol(
-            "SRC",
-            "USD",
-            "BINANCE",
-            "BINANCE_SPOT_SRC_USD"
-        )
+    Symbol(
+        "BTC",
+        "USD",
+        "BINANCE",
+        "BINANCE_SPOT_BTC_USD"
+    ),
+    Symbol(
+        "ETH",
+        "USD",
+        "BINANCE",
+        "BINANCE_SPOT_ETH_USD"
+    ),
+    Symbol(
+        "XRP",
+        "USD",
+        "BINANCE",
+        "BINANCE_SPOT_XRP_USD"
+    ),
+    Symbol(
+        "SRC",
+        "USD",
+        "BINANCE",
+        "BINANCE_SPOT_SRC_USD"
     )
+)

@@ -32,7 +32,6 @@ import br.com.mdr.criptoapi.ui.presentation.theme.Dimens.SMALL_PADDING
 import br.com.mdr.criptoapi.ui.presentation.theme.ShimmerColor
 import br.com.mdr.criptoapi.ui.presentation.theme.ShimmerMediumColor
 
-
 @Composable
 fun ShimmerEffect() {
     LazyColumn(

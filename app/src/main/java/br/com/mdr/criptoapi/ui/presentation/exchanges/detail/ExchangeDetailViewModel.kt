@@ -18,7 +18,7 @@ import javax.inject.Inject
 class ExchangeDetailViewModel @Inject constructor(
     private val useCase: ExchangeDetailUseCase,
     private val stateHandle: SavedStateHandle
-): BaseViewModel() {
+) : BaseViewModel() {
     private val _exchange = MutableStateFlow<PageState<ExchangeData>>(PageState.Loading)
     val exchange: StateFlow<PageState<ExchangeData>> = _exchange
 
@@ -52,7 +52,7 @@ class ExchangeDetailViewModel @Inject constructor(
                 ?: stateHandle.get<String>(EXCHANGE_ID_KEY)
 
         exchangeId?.let {
-            launch (
+            launch(
                 errorBlock = {
                     _exchange.emit(PageState.Error(it))
                 }

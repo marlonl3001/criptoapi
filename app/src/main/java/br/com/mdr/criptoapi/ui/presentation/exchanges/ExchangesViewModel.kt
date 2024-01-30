@@ -15,7 +15,7 @@ import javax.inject.Inject
 @HiltViewModel
 class ExchangesViewModel @Inject constructor(
     private val useCase: ExchangesUseCase
-): BaseViewModel() {
+) : BaseViewModel() {
 
     private val _exchanges = MutableStateFlow<PagingData<Exchange>>(PagingData.empty())
     val exchanges: StateFlow<PagingData<Exchange>>

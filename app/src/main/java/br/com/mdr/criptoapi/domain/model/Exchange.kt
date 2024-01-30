@@ -26,6 +26,7 @@ data class Exchange(
 
     val volumeLastHour: String
         get() = volumeHour.getDollarAmount()
+
     @get:Ignore
     val volumeLast24: String
         get() = volumeDay.getDollarAmount()

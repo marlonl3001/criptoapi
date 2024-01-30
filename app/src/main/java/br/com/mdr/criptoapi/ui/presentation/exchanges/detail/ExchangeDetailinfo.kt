@@ -60,9 +60,11 @@ fun ExchangeDetailInfo(modifier: Modifier, exchange: Exchange) {
 @Preview
 @Composable
 fun ExchangeDetailInfoPreview() {
-    ExchangeDetailInfo(modifier = Modifier, exchange = Exchange(
-        "ETHERIUM",
-        "Etherium",
+    ExchangeDetailInfo(
+        modifier = Modifier,
+        exchange = Exchange(
+            "ETHERIUM",
+            "Etherium",
 //            "",
 //            "",
 //            "",
@@ -74,12 +76,13 @@ fun ExchangeDetailInfoPreview() {
 //            0,
 //            0,
 //            0.0,
-        3456538.57,
-        654665865.0,
-        3698218468.75,
+            3456538.57,
+            654665865.0,
+            3698218468.75,
 //            0.0,
 //            listOf(),
 //            listOf(),
-        null
-    ))
+            null
+        )
+    )
 }

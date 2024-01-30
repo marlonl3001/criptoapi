@@ -12,7 +12,7 @@ import br.com.mdr.criptoapi.domain.model.ExchangeRemoteKeys
 
 @Database(entities = [Exchange::class, ExchangeRemoteKeys::class], version = 1)
 @TypeConverters(DatabaseConverter::class)
-abstract class CriptoDatabase: RoomDatabase() {
+abstract class CriptoDatabase : RoomDatabase() {
 
     companion object {
         fun create(context: Context, useInMemory: Boolean): CriptoDatabase {

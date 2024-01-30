@@ -14,7 +14,7 @@ import br.com.mdr.criptoapi.domain.model.ExchangeRemoteKeys
 class ExchangeRemoteMediator(
     private val criptoApi: CriptoApi,
     private val database: CriptoDatabase
-): RemoteMediator<Int, Exchange>() {
+) : RemoteMediator<Int, Exchange>() {
 
     private val exchangesDao = database.getExchangeDao()
     private val exchangesRemoteKeysDao = database.getRemoteKeysDao()
@@ -36,12 +36,10 @@ class ExchangeRemoteMediator(
         } else {
             InitializeAction.LAUNCH_INITIAL_REFRESH
         }
-
     }
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, Exchange>): MediatorResult {
         return try {
-
             when (loadType) {
                 LoadType.REFRESH -> Unit
                 LoadType.PREPEND -> {
@@ -60,7 +58,6 @@ class ExchangeRemoteMediator(
 
             val response = criptoApi.getExchanges()
             if (response.isNotEmpty()) {
-
                 val icons = criptoApi.getExchangeIcons()
                 response.forEach { exchange ->
                     exchange.url = icons.find { icon ->

@@ -76,13 +76,13 @@ object NetworkModule {
     fun providesRemoteDataSource(
         criptoApi: CriptoApi,
         criptoDatabase: CriptoDatabase
-    ): RemoteDataSource  =
+    ): RemoteDataSource =
         RemoteDataSourceImpl(
             api = criptoApi,
             dataBase = criptoDatabase
         )
 
-    class AuthorizationInterceptor: Interceptor {
+    class AuthorizationInterceptor : Interceptor {
 
         override fun intercept(chain: Interceptor.Chain): Response {
             val request = chain.request().newBuilder()
