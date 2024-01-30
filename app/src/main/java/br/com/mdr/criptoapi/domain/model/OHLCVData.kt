@@ -1,5 +1,8 @@
 package br.com.mdr.criptoapi.domain.model
 
+import br.com.mdr.criptoapi.utils.dateFormatted
+import br.com.mdr.criptoapi.utils.getDollarAmount
+import br.com.mdr.criptoapi.utils.hourFormatted
 import com.google.gson.annotations.SerializedName
 
 data class OHLCVData(
@@ -23,4 +26,12 @@ data class OHLCVData(
     val tradesCount: Int,
     @SerializedName("volume_traded")
     val volumeTraded: Double
-)
+) {
+    fun getPriceTraded(): String {
+        return (priceClose * volumeTraded).getDollarAmount()
+    }
+
+    fun getIntervalPeriod(): String {
+        return "${timePeriodStart.hourFormatted()} às ${timePeriodEnd.hourFormatted()}\n${timePeriodStart.dateFormatted()}"
+    }
+}

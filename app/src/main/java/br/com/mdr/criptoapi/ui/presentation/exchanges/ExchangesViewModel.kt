@@ -1,4 +1,4 @@
-package br.com.mdr.criptoapi.ui.presentation.home
+package br.com.mdr.criptoapi.ui.presentation.exchanges
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.viewModelScope

@@ -43,13 +43,13 @@ class RemoteDataSourceImpl(
     }
 
     override suspend fun getOHLCVHistory(exchangeId: String): List<OHLCVData> {
-        val dateStart = Date()
-        val dateEnd = Calendar.getInstance()
-        dateEnd.time = dateStart
-        dateEnd.add(Calendar.DATE, 1)
+        val dateEnd = Date()
+        val dateStart = Calendar.getInstance()
+        dateStart.time = dateEnd
+        dateStart.add(Calendar.DATE, -1)
 
-        val paramDateStart = dateStart.toIsoFormat()
-        val paramDateEnd = dateEnd.time.toIsoFormat()
+        val paramDateStart = dateStart.time.toIsoFormat()
+        val paramDateEnd = dateEnd.toIsoFormat()
 
         return api.getOHLCVHistory(
                 symbolId = BINANCE_BITCOIN_SYMBOL,

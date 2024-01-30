@@ -1,4 +1,4 @@
-package br.com.mdr.criptoapi.ui.presentation.home
+package br.com.mdr.criptoapi.ui.presentation.exchanges
 
 import android.content.res.Configuration
 import androidx.compose.foundation.layout.fillMaxWidth

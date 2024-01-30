@@ -10,6 +10,8 @@
     <string name="vol_last_hour">Última Hora:</string>
     <string name="vol_last_24">Últimas 24 horas</string>
     <string name="vol_last_month">Último mês</string>
+    <string name="price_traded">Valor Transacionado:</string>
+    <string name="price_traded_interval_label">Horário:</string>
 
     <!-- Content Description Section -->
     <string name="search_here">Busque um ativo</string>

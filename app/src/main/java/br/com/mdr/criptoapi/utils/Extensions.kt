@@ -7,9 +7,12 @@ import androidx.compose.runtime.produceState
 import androidx.compose.runtime.snapshotFlow
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 import java.util.Date
 import java.util.Locale
 
+private const val ISO_DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'"
 fun Double.getDollarAmount(): String {
     val formatter = DecimalFormat("$ #,###.00")
     return formatter.format(this)
@@ -35,6 +38,20 @@ fun LazyListState.isScrollingUp(): State<Boolean> {
 
 fun Date.toIsoFormat(): String =
     SimpleDateFormat(
-        "yyyy-MM-dd'T'HH:mm:ss.SSSSSSS'Z'",
+        ISO_DATE_FORMAT,
         Locale("en", "US", "POSIX")
     ).format(this)
+
+fun String.hourFormatted(): String {
+    val formatter = DateTimeFormatter.ofPattern(ISO_DATE_FORMAT)
+    val date = LocalDateTime.parse(this, formatter)
+
+    return DateTimeFormatter.ofPattern("HH:mm").format(date)
+}
+
+fun String.dateFormatted(): String {
+    val formatter = DateTimeFormatter.ofPattern(ISO_DATE_FORMAT)
+    val date = LocalDateTime.parse(this, formatter)
+
+    return DateTimeFormatter.ofPattern("dd/MM/yy").format(date)
+}
