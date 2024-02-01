@@ -7,7 +7,7 @@ import br.com.mdr.criptoapi.domain.model.OHLCVData
 import br.com.mdr.criptoapi.domain.model.Symbol
 import java.io.IOException
 
-class MockedCriptoApi: CriptoApi {
+class MockedCriptoApi : CriptoApi {
 
     private var exception = false
 

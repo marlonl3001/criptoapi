@@ -1,6 +1,5 @@
 package br.com.mdr.criptoapi.ui
 
-import androidx.paging.PagingData
 import androidx.paging.testing.asSnapshot
 import app.cash.turbine.test
 import br.com.mdr.criptoapi.base.BaseViewModelTest
@@ -10,10 +9,8 @@ import br.com.mdr.criptoapi.mocks.emitPagingData
 import br.com.mdr.criptoapi.mocks.emptyExchangesMock
 import br.com.mdr.criptoapi.mocks.exchangesMock
 import br.com.mdr.criptoapi.ui.presentation.exchanges.ExchangesViewModel
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
-import org.junit.Assert.assertNotEquals
 import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Ignore
@@ -21,12 +18,12 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 
-class ExchangesViewModelTest: BaseViewModelTest() {
+class ExchangesViewModelTest : BaseViewModelTest() {
 
     @Mock
     private lateinit var mockedUseCase: ExchangesUseCase
 
-    private lateinit var viewModel : ExchangesViewModel
+    private lateinit var viewModel: ExchangesViewModel
 
     @Before
     override fun setup() {
@@ -76,7 +73,7 @@ class ExchangesViewModelTest: BaseViewModelTest() {
         viewModel.getExchanges(query)
 
         viewModel.exchanges.test {
-            val items: List<Exchange> = viewModel.exchanges.asSnapshot{
+            val items: List<Exchange> = viewModel.exchanges.asSnapshot {
                 this.scrollTo(0)
             }
 

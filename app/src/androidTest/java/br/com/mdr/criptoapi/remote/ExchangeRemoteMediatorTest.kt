@@ -38,7 +38,7 @@ class ExchangeRemoteMediatorTest {
     @Test
     fun refreshLoadSuccessAndEndOfPaginationTrueWhenNoMoreData() =
         runBlocking {
-            //mockedApi.clearData()
+            // mockedApi.clearData()
             val remoteMediator = ExchangeRemoteMediator(
                 criptoApi = mockedApi,
                 database = database

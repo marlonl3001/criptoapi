@@ -18,7 +18,7 @@ import org.junit.Test
 import org.mockito.Mock
 import org.mockito.Mockito
 
-class ExchangeDetailViewModelTest: BaseViewModelTest() {
+class ExchangeDetailViewModelTest : BaseViewModelTest() {
 
     @Mock
     private lateinit var mockedUseCase: ExchangeDetailUseCase
@@ -45,7 +45,6 @@ class ExchangeDetailViewModelTest: BaseViewModelTest() {
 
     @Test
     fun givenSuccess_whenLoadingExchangeDetail_thenCheckResult() = runTest {
-
         val response = flowOf(PageState.Success(getExchangeDetail(exchangeId, baseAssets)))
 
         Mockito.`when`(mockedUseCase.getExchangeDetail(exchangeId, baseAssets))
@@ -61,7 +60,6 @@ class ExchangeDetailViewModelTest: BaseViewModelTest() {
 
     @Test
     fun givenEmptyList_whenLoadingExchangeDetail_thenCheckResult() = runTest {
-
         val response = flowOf(PageState.Empty)
 
         Mockito.`when`(mockedUseCase.getExchangeDetail(exchangeId, baseAssets))
@@ -77,7 +75,6 @@ class ExchangeDetailViewModelTest: BaseViewModelTest() {
 
     @Test
     fun givenError_whenLoadingExchangeDetail_thenCheckException() = runTest {
-
         Mockito.`when`(mockedUseCase.getExchangeDetail(exchangeId, baseAssets))
             .thenAnswer { throw Exception("Error Test") }
 
@@ -88,7 +85,7 @@ class ExchangeDetailViewModelTest: BaseViewModelTest() {
             val error = awaitItem()
             assertTrue(error is PageState.Error)
             val message = (error as? PageState.Error)?.error?.message
-            assertTrue( message == "Error Test")
+            assertTrue(message == "Error Test")
         }
     }
 }
