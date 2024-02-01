@@ -1,4 +1,4 @@
-package br.com.mdr.criptoapi
+package br.com.mdr.criptoapi.ui
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry

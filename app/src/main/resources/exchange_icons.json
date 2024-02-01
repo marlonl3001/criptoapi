@@ -1,0 +1,34 @@
+[
+  {
+	"exchange_id": "BITTREX",
+	"url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/430d0c2db3624ce983702b770293ed3e.png"
+  },
+  {
+    "exchange_id": "HUOBI",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/7f9fc543dbf8485689842a47dce439e0.png"
+  },
+  {
+    "exchange_id": "OKCOINCNY",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/32e3f2bd9de742ad8d9241c7f9f43780.png"
+  },
+  {
+    "exchange_id": "GEMINI",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/7be1b1756d8a4f989b9a743df7365119.png"
+  },
+  {
+    "exchange_id": "BITSTAMP",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/667cd27455694a698578c0b049da749d.png"
+  },
+  {
+    "exchange_id": "COINBASE",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/54c07e9bf5c140a8ae8d866704a4e393.png"
+  },
+  {
+    "exchange_id": "KRAKEN",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/0fce391a2d564c089735f4e42e0d8d79.png"
+  },
+  {
+    "exchange_id": "BINANCE",
+    "url": "https://s3.eu-central-1.amazonaws.com/bbxt-static-icons/type-id/png_32/74eaad903814407ebdfc3828fe5318ba.png"
+  }
+]

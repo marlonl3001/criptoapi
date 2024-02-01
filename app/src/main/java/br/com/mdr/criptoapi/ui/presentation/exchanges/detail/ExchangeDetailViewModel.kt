@@ -50,7 +50,6 @@ class ExchangeDetailViewModel @Inject constructor(
         val exchangeId =
             (_exchange.value as? PageState.Success)?.result?.exchange?.id
                 ?: stateHandle.get<String>(EXCHANGE_ID_KEY)
-
         exchangeId?.let {
             launch(
                 errorBlock = {
@@ -58,35 +57,37 @@ class ExchangeDetailViewModel @Inject constructor(
                 }
             ) {
                 useCase.getExchangeDetail(it, baseAssets).collect {
-                    _exchange.emit(PageState.Success(it))
-                    fetchChartData(it.history[_currentAsset.value])
+                    _exchange.emit(it)
+                    fetchChartData(it)
                 }
             }
         }
     }
 
-    private fun fetchChartData(exchangesHistory: List<OHLCVData>?) {
-        if (_lineChartData.value.isNotEmpty()) {
-            _lineChartData.value.clear()
-        }
-        val lineChartData = _lineChartData.value
-        exchangesHistory?.forEachIndexed { index, ohlcvData ->
-            lineChartData.add(
-                Entry(
-                    index.toFloat(),
-                    ohlcvData.volumeTraded.toFloat(),
-                    ohlcvData
+    private fun fetchChartData(pageData: PageState<ExchangeData>) {
+        (pageData as? PageState.Success<ExchangeData>)?.apply {
+            if (_lineChartData.value.isNotEmpty()) {
+                _lineChartData.value.clear()
+            }
+            val lineChartData = _lineChartData.value
+            result.history[_currentAsset.value]?.forEachIndexed { index, ohlcvData ->
+                lineChartData.add(
+                    Entry(
+                        index.toFloat(),
+                        ohlcvData.volumeTraded.toFloat(),
+                        ohlcvData
+                    )
                 )
-            )
+            }
+            _lineChartData.value = lineChartData
         }
-        _lineChartData.value = lineChartData
     }
 
     fun updateAssetData(assetId: String, index: Int? = null) {
         (_exchange.value as? PageState.Success<ExchangeData>)?.apply {
-            val ohlcvData = this.result.history[assetId]
-            fetchChartData(ohlcvData)
+            fetchChartData(_exchange.value)
             _currentAsset.value = assetId
+            val ohlcvData = this.result.history[assetId]
 
             index?.let {
                 updatePriceValues(ohlcvData?.get(it))

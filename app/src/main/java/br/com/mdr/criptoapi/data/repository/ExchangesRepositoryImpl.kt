@@ -9,8 +9,9 @@ import br.com.mdr.criptoapi.domain.repository.LocalDataSource
 import br.com.mdr.criptoapi.domain.repository.RemoteDataSource
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import javax.inject.Inject
 
-class ExchangesRepositoryImpl(
+class ExchangesRepositoryImpl @Inject constructor(
     private val dataSource: RemoteDataSource,
     private val localDataSource: LocalDataSource
 ) : ExchangesRepository {
