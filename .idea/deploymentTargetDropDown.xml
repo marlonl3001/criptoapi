@@ -2,7 +2,22 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="ExchangeRemoteMediatorTest">
+        <State />
+      </entry>
+      <entry key="SearchTopBarTest">
+        <State />
+      </entry>
       <entry key="app">
+        <State />
+      </entry>
+      <entry key="givenExchangesScreen_whenExchangesLoad_thenCheckListIsFilled()">
+        <State />
+      </entry>
+      <entry key="openSearchWidget_addInputText_pressCloseButton_assertCloseButtonIsGone()">
+        <State />
+      </entry>
+      <entry key="refreshLoadSuccessAndEndOfPaginationTrueWhenNoMoreData()">
         <State />
       </entry>
     </value>

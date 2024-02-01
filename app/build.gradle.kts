@@ -108,5 +108,7 @@ dependencies {
     testImplementation("org.mockito:mockito-core:5.3.1")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
     testImplementation(libs.kotlinx.coroutines.test)
-    testImplementation("androidx.paging:paging-testing:3.1.1")
+    implementation("androidx.navigation:navigation-testing:2.7.6")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.50")
+    kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.50")
 }
